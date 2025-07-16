@@ -1,0 +1,21 @@
+#include "/Engine/Public/Platform.ush"
+#include "/Engine/Private/Common.ush"
+
+RWTexture2D<float4> OutputSurface0;
+uint Size;
+
+float2 ComplexExp(float2 a)
+{
+    return float2(cos(a.y), sin(a.y)) * exp(a.x);
+}
+
+[numthreads(8, 8, 1)]
+void CalculateTwiddleFactor(uint3 id : SV_DispatchThreadID) 
+{
+    uint b = Size >> (id.x + 1);
+    float2 mult = 2 * PI * float2(0, 1) / Size;
+    uint i = (2 * b * (id.y / b) + id.y % b) % Size;
+    float2 twiddle = ComplexExp(-mult * ((id.y / b) * b));
+    OutputSurface0[id.xy] = float4(twiddle.x, twiddle.y, i, i + b);   
+    OutputSurface0[uint2(id.x, id.y + Size / 2)] = float4(-twiddle.x, -twiddle.y, i, i + b);	
+}

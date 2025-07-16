@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\unrealeditor\\inc\\wavesimulation\\uht\\waveenginesubsystem.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\11\\ta\\ueprojects\\seaside\\intermediate\\build\\win64\\x64\\seasideeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\wavesimulation\\definitions.wavesimulation.h",
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\source\\wavesimulation\\public\\enginesubsystem\\waveenginesubsystem.h",
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\unrealeditor\\inc\\wavesimulation\\uht\\waveenginesubsystem.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

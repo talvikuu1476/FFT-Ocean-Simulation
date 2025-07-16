@@ -1,0 +1,47 @@
+#include "/Engine/Public/Platform.ush"
+#include "/Engine/Private/Common.ush"
+
+
+RWTexture2D<float2> Dx_Dz; // combined X/Z displacement (waves' X and Z axis displacement)
+RWTexture2D<float2> Dy_Dxz; // Y displacement (wave height, Y axis) + X/Z derivatives (using this to calculate Jacobian (-> foam effect))
+RWTexture2D<float2> Dyx_Dyz; // Y derivatives w.r.t X/Z (using this to calculate wave normal)
+RWTexture2D<float2> Dxx_Dzz; // second-order X/Z derivatives (using this to calculate wave normal)
+
+Texture2D<float4> H0;
+Texture2D<float4> WavesData;
+
+float Time;
+
+float2 ComplexMult(float2 a, float2 b)
+{
+	return float2(a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x);
+}
+
+[numthreads(8,8,1)]
+void CalculateFrequency(uint3 id : SV_DispatchThreadID)
+{
+	float4 wave = WavesData[id.xy];
+	float phase = wave.w * Time;
+	float2 exponent = float2(cos(phase), sin(phase)); // complex phase factor e^{iwt}
+
+    // calculate time-evolved complex wave amplitude
+	float2 h = ComplexMult(H0[id.xy].xy, exponent)
+		+ ComplexMult(H0[id.xy].zw, float2(exponent.x, -exponent.y));
+	float2 ih = float2(-h.y, h.x);
+	
+	float2 displacementX = ih * wave.x * wave.y;
+	float2 displacementY = h;
+	float2 displacementZ = ih * wave.z * wave.y;
+		 
+	float2 displacementX_dx = -h * wave.x * wave.x * wave.y;
+	float2 displacementY_dx = ih * wave.x;
+	float2 displacementZ_dx = -h * wave.x * wave.z * wave.y;
+		 
+	float2 displacementY_dz = ih * wave.z;
+	float2 displacementZ_dz = -h * wave.z * wave.z * wave.y;
+	
+	Dx_Dz[id.xy] = float2(displacementX.x - displacementZ.y, displacementX.y + displacementZ.x);
+	Dy_Dxz[id.xy] = float2(displacementY.x - displacementZ_dx.y, displacementY.y + displacementZ_dx.x);
+	Dyx_Dyz[id.xy] = float2(displacementY_dx.x - displacementY_dz.y, displacementY_dx.y + displacementY_dz.x);
+	Dxx_Dzz[id.xy] = float2(displacementX_dx.x - displacementZ_dz.y, displacementX_dx.y + displacementZ_dz.x);
+}

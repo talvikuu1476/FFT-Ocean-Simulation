@@ -1,0 +1,58 @@
+#include "/Engine/Public/Platform.ush"
+#include "/Engine/Private/Common.ush"
+
+uint Step; // stage
+uint Dir; // 0->horizontal, 1->vertical
+
+Texture2D<float4> PrecomputedTwiddle; // precomputed twiddle factor LUT
+Texture2D<float2> InputData;
+RWTexture2D<float2> OutputData;
+
+float2 ComplexMultiply(in float2 a, in float2 b)
+{
+	float2 result;
+	result.x = a.x * b.x - a.y * b.y;
+	result.y = a.x * b.y + a.y * b.x;
+	return result;
+}
+
+float2 ComplexAdd(in float2 a, in float2 b)
+{
+	return float2(a.x + b.x, a.y + b.y);
+}
+
+
+void HorizontalButterfly(in uint2 id)
+{
+	float4 TwiddleData = PrecomputedTwiddle[uint2(Step, id.x)];
+	uint2 TwiddleFactor = (uint2) TwiddleData.zw;
+
+	OutputData[id] = (InputData[uint2(TwiddleFactor.x, id.y)] +
+		ComplexMultiply(float2(TwiddleData.x, -TwiddleData.y), InputData[uint2(TwiddleFactor.y, id.y)].xy)) *
+		(1.0 - 2.0 * ((id.x + id.y) % 2));
+
+}
+
+void VerticalButterfly(in uint2 id)
+{
+	float4 TwiddleData = PrecomputedTwiddle[uint2(Step, id.y)];
+	uint2 TwiddleFactor = (uint2) TwiddleData.zw;
+
+	OutputData[id.xy] = (InputData[uint2(id.x, TwiddleFactor.x)] +
+		ComplexMultiply(float2(TwiddleData.r, -TwiddleData.g), InputData[uint2(id.x, TwiddleFactor.y)].xy)) *
+		(1.0 - 2.0 * ((id.x + id.y) % 2));
+}
+
+[numthreads(8, 8, 1)]
+void IFFTButterfly(uint3 id : SV_DispatchThreadID)
+{
+	[branch]
+	if (Dir == 0)
+	{
+		HorizontalButterfly(id.xy);
+	}
+	else
+	{
+		VerticalButterfly(id.xy);
+	}
+}

@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-WaveSimulation.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:/11/TA/UEProjects/Seaside/Intermediate/Build/Win64/x64/SeasideEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"D:/11/TA/UEProjects/Seaside/Plugins/WaveSimulation/Intermediate/Build/Win64/x64/UnrealEditor/Development/WaveSimulation/Module.WaveSimulation.cpp.obj"
+"D:/11/TA/UEProjects/Seaside/Plugins/WaveSimulation/Intermediate/Build/Win64/x64/UnrealEditor/Development/WaveSimulation/WaveEngineSubsystem.cpp.obj"
+"D:/11/TA/UEProjects/Seaside/Plugins/WaveSimulation/Intermediate/Build/Win64/x64/UnrealEditor/Development/WaveSimulation/Default.rc2.res"
+/OUT:"D:/11/TA/UEProjects/Seaside/Plugins/WaveSimulation/Intermediate/Build/Win64/x64/UnrealEditor/Development/WaveSimulation/UnrealEditor-WaveSimulation.lib"

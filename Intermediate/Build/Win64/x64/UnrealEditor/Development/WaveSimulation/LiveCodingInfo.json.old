@@ -1,0 +1,24 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.WaveSimulation.cpp.obj": [
+			"InitialBlueprintFunctionLibrary.cpp.obj",
+			"WaveEngineSubsystem.cpp.obj",
+			"HelperFunctions.cpp.obj",
+			"InitialSpectrum.cpp.obj",
+			"WaveSceneViewExtension.cpp.obj",
+			"FrequencyCS.cpp.obj",
+			"IFFTButterflyCS.cpp.obj",
+			"InitialCS.cpp.obj",
+			"TwiddleFactorCS.cpp.obj",
+			"WaveIntegrationCS.cpp.obj",
+			"WaveGridActor.cpp.obj",
+			"WaveSimulation.cpp.obj",
+			"InitialBlueprintFunctionLibrary.gen.cpp.obj",
+			"WaveEngineSubsystem.gen.cpp.obj",
+			"WaveGridActor.gen.cpp.obj",
+			"WaveSimulation.init.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj"
+		]
+	}
+}

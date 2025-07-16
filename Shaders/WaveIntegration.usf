@@ -1,0 +1,33 @@
+#include "/Engine/Public/Platform.ush"
+#include "/Engine/Private/Common.ush"
+
+Texture2D<float2> Dx_Dz;
+Texture2D<float2> Dy_Dxz;
+Texture2D<float2> Dyx_Dyz;
+Texture2D<float2> Dxx_Dzz;
+
+RWTexture2D<float4> Displacement; // XYZ displacement in RGB channel
+RWTexture2D<float4> Derivatives;  // normal (RGB) and folding info for wave folding (A)
+// RWTexture2D<float4> Turbulence;   // foam
+
+float Choppiness;
+// float DeltaTime;
+
+[numthreads(8, 8, 1)]
+void WaveIntegration(uint3 id : SV_DispatchThreadID)
+{
+	float2 DxDz = Dx_Dz[id.xy];
+    float2 DyDxz = Dy_Dxz[id.xy];
+    float2 DyxDyz = Dyx_Dyz[id.xy];
+    float2 DxxDzz = Dxx_Dzz[id.xy];
+	
+    Displacement[id.xy] = float4(Choppiness * DxDz.x, DyDxz.x, Choppiness * DxDz.y, 1);
+    
+    Derivatives[id.xy] = float4(DyxDyz, DxxDzz * Choppiness);
+
+	/* Foam Calculation (ignored at this time)
+    float jacobian = (1 + Choppiness * DxxDzz.x) * (1 + Choppiness * DxxDzz.y) - Choppiness * Choppiness * DyDxz.y * DyDxz.y;
+	Turbulence[id.xy] = Turbulence[id.xy].r + DeltaTime * 0.5 / max(jacobian, 0.5);
+	Turbulence[id.xy] = min(jacobian, Turbulence[id.xy].r);
+	*/
+}

@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\unrealeditor\\inc\\wavesimulation\\uht\\wavegridactor.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\11\\ta\\ueprojects\\seaside\\intermediate\\build\\win64\\x64\\seasideeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\wavesimulation\\definitions.wavesimulation.h",
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\source\\wavesimulation\\public\\wavegridactor.h",
+            "d:\\ue_5.6\\engine\\plugins\\runtime\\proceduralmeshcomponent\\source\\proceduralmeshcomponent\\public\\proceduralmeshcomponent.h",
+            "d:\\ue_5.6\\engine\\plugins\\runtime\\proceduralmeshcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\proceduralmeshcomponent\\uht\\proceduralmeshcomponent.generated.h",
+            "d:\\11\\ta\\ueprojects\\seaside\\plugins\\wavesimulation\\intermediate\\build\\win64\\unrealeditor\\inc\\wavesimulation\\uht\\wavegridactor.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
