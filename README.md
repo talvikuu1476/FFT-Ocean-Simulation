@@ -1,4 +1,4 @@
-##### FFT Wave Simulation
+### FFT Wave Simulation
 Based on UE 5.6
 
 ### Shader Explaination
