@@ -1,7 +1,7 @@
 ### FFT Wave Simulation
-Based on UE 5.6
+This plugin is developed under UE 5.6 environment.
 
-### Shader Explaination
+### Shader Explanation
 1. InitialSpectrum.usf
 
 
