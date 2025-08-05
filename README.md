@@ -1,4 +1,6 @@
 # FFT Wave Simulation
+![wave](https://github.com/user-attachments/assets/c1922c86-f189-4470-a475-c649166b46b0)
+
 This plugin is developed under UE 5.6 environment.
 
 ## Shaders
