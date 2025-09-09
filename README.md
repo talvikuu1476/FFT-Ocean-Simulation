@@ -51,9 +51,21 @@ Setup spectrum params through blueprint and generate static initial wave spectru
 
 ### 1. InitialSpectrum & TwiddleFactor
 
-Add render pass of drawing conjugated spectrum (H0), wave vector and frequency data (WavesData), and twiddle factor to RTs. These 3 RTs will be removed from RDG and precomputed prior to other passes later for optimisation.
+Draw conjugated spectrum (H0), wave vector and frequency data (WavesData), and twiddle factor to RTs. These 3 RTs will be removed from RDG and precomputed prior to other passes later for optimisation.
 
-### 2. 
+### 2. Frequency (IFFT Frequency)
+
+Compute the time-dependent spectrum and derivatives by evolving frequency domain data per frame and draw them on 4 RTs as frequency doamin textures separately.
+
+### 3. IFFTButterfly
+
+Transform frequency domain data to spatial domain data (e.g. displacements and heights) using IFFT butterfly for each frequency domain texture.
+
+### 4. WaveIntegration
+
+Use spatial domain data to create displacement texture, normal texture, and foam texture (didn't used in this project).
+
+### 5. 
 
 
 
