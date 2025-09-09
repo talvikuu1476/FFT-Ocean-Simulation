@@ -23,11 +23,11 @@ Wave strength. Default 1500.
 
 1. Num Verts
 
-Number of vertices
+Number of vertices. Default 128, minimum 2 and maximum 512.
 
-2. Grid Spacing. Default 128, minimum 2 and maximum 512.
+2. Grid Spacing
 
-Wave area. Default 50, minimum 1 and maximum 1000.
+Wave area or distance between vertices. Default 50, minimum 1 and maximum 1000.
 
 # Explanation
 
@@ -95,7 +95,7 @@ Use spatial domain data to create displacement texture, normal texture, and foam
 
 ## Features
 
-### 1. Procedurally Generated Grid
+### 1. Procedural Grid Mesh
 
 
 
