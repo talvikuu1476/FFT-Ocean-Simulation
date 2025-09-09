@@ -13,11 +13,11 @@ Apply the wave material (M_WaveSurface0_Inst) to the wave grid.
 
 1. UVScale
 
-
+UV scale. Default 1.
 
 2. WaveStrength
 
-
+Wave strength. Default 1500.
 
 #### Wave Grid
 
