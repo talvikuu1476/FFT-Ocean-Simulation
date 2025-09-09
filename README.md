@@ -3,6 +3,34 @@
 
 This plugin is developed under UE 5.6 environment.
 
+## How to Use
+
+Apply the wave material (M_WaveSurface0_Inst) to the wave grid.
+
+### Adjustable params
+
+#### M_WaveSurface0_Inst
+
+1. UVScale
+
+
+
+2. WaveStrength
+
+
+
+#### Wave Grid
+
+1. Num Verts
+
+Number of vertices
+
+2. Grid Spacing. Default 128, minimum 2 and maximum 512.
+
+Wave area. Default 50, minimum 1 and maximum 1000.
+
+# Explanation
+
 ## Shaders
 
 ### 1. InitialSpectrum.usf
@@ -65,7 +93,11 @@ Transform frequency domain data to spatial domain data (e.g. displacements and h
 
 Use spatial domain data to create displacement texture, normal texture, and foam texture (didn't used in this project).
 
-### 5. 
+## Features
+
+### 1. Procedurally Generated Grid
+
+
 
 
 
