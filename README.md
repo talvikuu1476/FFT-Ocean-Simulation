@@ -152,23 +152,29 @@ An array (FSpectrumParameters) containing a group of basic wave spectrum params.
  
 3. NoiseTexture
 
+A 256 * 256 noise texture. For this project a pre-computed gaussian noise with RGBA channel.
 
-4. WaveSize = 256,
+4. WaveSize
 
+Wave size or the FFT resolution. Default 256.0 (will draw on a 256 * 256 RT).  
 
-5. WaveLengthScale = 1000.0f,
+6. WaveLengthScale = 1000.0f,
 
+The physical scale of the simulation domain. Default 1000.0.
 
-6. WaveCutoffHigh = 10000.0f,
+7. WaveCutoffHigh
 
+High-frequency cutoff in the spectrum. Default 10000.0.
 
-7. WaveCutoffLow = 0.0001f,
+8. WaveCutoffLow 
 
+HLow-frequency cutoff in the spectrum. Default 0.0001.
 
-8. WaveGravityAcceleration = 981.0f,
+9. WaveGravityAcceleration
 
+Gravitational acceleration (in cm/s^2) Default 981.0, mostly it shouldn't be adjusted.
 
-9. WaveDepth = 50.0f
+10. WaveDepth
 
-
+Wave depth or water depth. Default 50.0.
 
