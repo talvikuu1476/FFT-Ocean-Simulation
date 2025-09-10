@@ -141,13 +141,13 @@ A static class to expose static utility function to blueprint in Unreal Editor. 
 An array (FSpectrumParameters) containing a group of basic wave spectrum params. Specifically,
 
         scale: Wave intensity. Default 1.0.
-        angle: Dominant wave direction (in radians). Default 0.0.
+        angle: Dominant wave direction (radians). Default 0.0.
         spreadBlend: Direction spreading. 0 = narrow spread; 1 = wide spread. Default 0.5.
-        swell: Swell wave intensity. Default 0.0.
+        swell: Optional. Swell wave intensity. Default 0.0.
         alpha: Phillips spectrum constant (≈0.0081 in Pierson–Moskowitz model). Default 0.0081.
-        peakOmega: The peak angular frequrncy. Default 0.855.
+        peakOmega: The peak angular frequrncy (radians/sencond). Default 0.855.
         gamma: JONSWAP spectrum param. Default 3.3 (also the default value in JONSWAP spectrum).
-        shortWavesFade: Dampens short, high-frequency waves. Default 0.01.
+        shortWavesFade: Dampens short, high-frequency waves. Default 0.01, range typically 0-1.
         
  
 3. NoiseTexture
@@ -174,7 +174,7 @@ HLow-frequency cutoff in the spectrum. Default 0.0001.
 
 Gravitational acceleration (in cm/s^2) Default 981.0, mostly it shouldn't be adjusted.
 
-10. WaveDepth
+10. WaveDepth (cm)
 
-Wave depth or water depth. Default 50.0.
+Wave depth or water depth. Default 50.0, simulating a 0.5m shallow water condition.
 
