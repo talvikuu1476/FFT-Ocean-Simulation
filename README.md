@@ -146,7 +146,7 @@ An array (FSpectrumParameters) containing a group of basic wave spectrum params.
         swell: Swell wave intensity. Default 0.0.
         alpha: Phillips spectrum constant (≈0.0081 in Pierson–Moskowitz model). Default 0.0081.
         peakOmega: The peak angular frequrncy. Default 0.855.
-        gamma: JONSWAP spectrum param. Default 3.3 (also the default value in JONSWAP).
+        gamma: JONSWAP spectrum param. Default 3.3 (also the default value in JONSWAP spectrum).
         shortWavesFade: Dampens short, high-frequency waves. Default 0.01.
         
  
