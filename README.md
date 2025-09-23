@@ -29,7 +29,7 @@ Number of vertices. Default 128, minimum 2 and maximum 512.
 
 Wave area or distance between vertices. Default 50, minimum 1 and maximum 1000.
 
-# Explanation
+# Instructions
 
 ## Shaders
 
