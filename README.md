@@ -5,7 +5,7 @@ This plugin is developed under UE 5.6 environment.
 
 ## How to Use
 
-Apply the wave material (M_WaveSurface0_Inst) to the wave grid.
+Apply the wave material (MI_WaveSurface0) to the wave grid.
 
 ### Adjustable params
 
